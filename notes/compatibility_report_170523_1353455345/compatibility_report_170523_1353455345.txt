@@ -1,0 +1,75 @@
+Converting GML script: ${project_dir}\scripts\check_path_empty\check_path_empty.gml
+Converted description /// @description  check_path_empty(x, y, xx, yy, board
+
+Converting GML script: ${project_dir}\scripts\cell_dist\cell_dist.gml
+Converted description /// @description  cell_dist(dist_x, dist_y, cell_x, cell_y, sel_x, sel_y);/// @param dist_x
+/// @param  dist_y
+/// @param  cell_x
+/// @param  cell_y
+/// @param  sel_x
+/// @param  sel_y
+
+Converting GML script: ${project_dir}\scripts\cell_dist_abs\cell_dist_abs.gml
+Converted description /// @description  cell_dist_abs(dist_x, dist_y, cell_x, cell_y, sel_x, sel_y);/// @param dist_x
+/// @param  dist_y
+/// @param  cell_x
+/// @param  cell_y
+/// @param  sel_x
+/// @param  sel_y
+
+Converting GML script: ${project_dir}\scripts\array_new\array_new.gml
+Converted description /// @description  array_new(array_to_copy
+
+Converting GML script: ${project_dir}\scripts\board_set_cell\board_set_cell.gml
+Converted description /// @description  board_set_cell(board, x, y, team, type);/// @param board
+/// @param  x
+/// @param  y
+/// @param  team
+/// @param  type
+
+Converting GML script: ${project_dir}\scripts\defeat_piece\defeat_piece.gml
+Converted description /// @description  defeat_piece(x, y);/// @param x
+/// @param  y
+
+Converting GML script: ${project_dir}\scripts\draw_text_center\draw_text_center.gml
+Converted description /// @description  draw_text_center(x, y, text, <xscale, yscale, angle>, <color, alpha>);/// @param x
+/// @param  y
+/// @param  text
+/// @param  <xscale
+/// @param  yscale
+/// @param  angle>
+/// @param  <color
+/// @param  alpha>
+
+Converting GML script: ${project_dir}\scripts\draw_highlight\draw_highlight.gml
+Converted description /// @description  draw_highlight(x, y, colour
+
+Converting GML script: ${project_dir}\scripts\moveable_check\moveable_check.gml
+Converted description /// @description  moveable_check(grid, sel_x, sel_y, board, type
+
+Converting GML script: ${project_dir}\scripts\moveable_clear\moveable_clear.gml
+Converted description /// @description  moveable_clear(
+
+!!! Font ft_chess uses a font (Book Antiqua) not installed on this system - Font has NOT been regenerated
+GameMaker Studio 1 font texture has been backed up at ${project_dir}\fonts\ft_chess\ft_chess.gms1.png
+Converting GML script: ${project_dir}\objects\obj_chess\Create_0.gml
+Converted description /// @description board and piece
+
+Converting GML script: ${project_dir}\objects\obj_chess\Alarm_0.gml
+Converted description /// @description disable check sho
+
+Converting GML script: ${project_dir}\objects\obj_chess\Step_0.gml
+Converted description /// @description gam
+
+Converting GML script: ${project_dir}\objects\obj_chess\Draw_0.gml
+Converted description /// @description draw boar
+
+Missing audiogroup for sound: 'snd_choose' - setting to default audio group
+Missing audiogroup for sound: 'snd_move' - setting to default audio group
+Missing audiogroup for sound: 'snd_drag' - setting to default audio group
+Missing audiogroup for sound: 'snd_win' - setting to default audio group
+Missing audiogroup for sound: 'snd_cancel' - setting to default audio group
+Game speed set to 30
+Added compatibility script 'instance/instance_create.gml'
+Added compatibility script 'object/object_get_depth.gml'
+Added compatibility script '__global_object_depths.gml'
