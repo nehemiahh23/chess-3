@@ -30,7 +30,7 @@ board_w = 16; //number of cells in x
 board_h = 16; //number of cells in y
 board = ds_grid_create(board_w, board_h);
 
-cell_size = 32; //size of each cell in pixels
+cell_size = 16; //size of each cell in pixels
 
 //position
 draw_x = 64; //where to draw the grid in the room
@@ -99,15 +99,19 @@ ds_grid_set_region(board, 0, 0, board_w-1, board_h-1, array_new(_empty));
 //pawn array
 var _pawn;
 _pawn[info.type] = type.pawn; //set type to type.pawn
-//loop through horizontal cells
-for(var i=0; i<board_w; i++){
-    //place pawns for player 1
-    _pawn[info.team] = 0;
-    ds_grid_set(board, i, 1, array_new(_pawn));
-    //place pawns for player 2
-    _pawn[info.team] = 1;
-    ds_grid_set(board, i, board_h - 2, array_new(_pawn));
-}
+
+//place pawns for player 1
+_pawn[info.team] = 0;
+ds_grid_set(board, 0, 1, array_new(_pawn));
+ds_grid_set(board, 1, 1, array_new(_pawn));
+ds_grid_set(board, board_w - 2, 1, array_new(_pawn));
+ds_grid_set(board, board_w - 1, 1, array_new(_pawn));
+//place pawns for player 2
+_pawn[info.team] = 1;
+ds_grid_set(board, 0, board_h - 2, array_new(_pawn));
+ds_grid_set(board, 1, board_h - 2, array_new(_pawn));
+ds_grid_set(board, board_w - 2, board_h - 2, array_new(_pawn));
+ds_grid_set(board, board_w - 1, board_h - 2, array_new(_pawn));
 
 //place other pieces
 var _array;
@@ -133,25 +137,25 @@ ds_grid_set(board, board_w - 2, board_h - 1, array_new(_array));
 //place bishops
 _array[info.type] = type.bishop;
 _array[info.team] = 0;
-ds_grid_set(board, 2, 0, array_new(_array));
-ds_grid_set(board, board_w - 3, 0, array_new(_array));
+ds_grid_set(board, 4, 0, array_new(_array));
+ds_grid_set(board, board_w - 5, 0, array_new(_array));
 _array[info.team] = 1;
-ds_grid_set(board, 2, board_h - 1, array_new(_array));
-ds_grid_set(board, board_w - 3, board_h - 1, array_new(_array));
+ds_grid_set(board, 4, board_h - 1, array_new(_array));
+ds_grid_set(board, board_w - 5, board_h - 1, array_new(_array));
 
 //place queen
 _array[info.type] = type.queen;
 _array[info.team] = 0;
-ds_grid_set(board, 3, 0, array_new(_array));
+ds_grid_set(board, 7, 0, array_new(_array));
 _array[info.team] = 1;
-ds_grid_set(board, 3, board_h - 1, array_new(_array));
+ds_grid_set(board, 7, board_h - 1, array_new(_array));
 
 //place king
 _array[info.type] = type.king;
 _array[info.team] = 0;
-ds_grid_set(board, 4, 0, array_new(_array));
+ds_grid_set(board, 8, 0, array_new(_array));
 _array[info.team] = 1;
-ds_grid_set(board, 4, board_h - 1, array_new(_array));
+ds_grid_set(board, 8, board_h - 1, array_new(_array));
 
 
 
