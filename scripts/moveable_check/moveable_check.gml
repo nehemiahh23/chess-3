@@ -41,7 +41,10 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 	            //rook
 	            case type.rook:
 	                //move anywhere vertically
-	                if ((_sel_x==w || _sel_y==h) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team!=turn) _grid[# w, h] = true;
+					if (abs(_sel_x-w)<2 && abs(_sel_y-h)<2 && _team!=turn) _grid[# w, h] = true;
+	                if ((_sel_x==w || _sel_y==h) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team!=turn) {
+						if ((h==0 || w==0) || (h==board_h-1 || w==board_w-1)) _grid[# w, h] = true
+					}
 	            break;
             
 	            //knight
