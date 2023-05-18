@@ -25,11 +25,13 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 	            //pawn
 	            case type.pawn: 
 	                //straight move
-	                if (cell_dist(0, ver_dir, w, h, _sel_x, _sel_y) && _team==-1) _grid[# w, h] = true;
+	                if (cell_dist(0, ver_dir, w, h, _sel_x, _sel_y) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team==-1) _grid[# w, h] = true;
+	                if (cell_dist(0, ver_dir*2, w, h, _sel_x, _sel_y) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team==-1) _grid[# w, h] = true;
                 
 	                //double move on start
 	                if ((turn==0 && _sel_y==1) || (turn==1 && _sel_y==board_h-2)){
-	                    if (cell_dist(0, ver_dir*2, w, h, _sel_x, _sel_y) && _team==-1) _grid[# w, h] = true;
+	                    if (cell_dist(0, ver_dir*3, w, h, _sel_x, _sel_y) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team==-1) _grid[# w, h] = true;
+	                    if (cell_dist(0, ver_dir*4, w, h, _sel_x, _sel_y) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team==-1) _grid[# w, h] = true;
 	                }
                 
 	                //diagonal attack
