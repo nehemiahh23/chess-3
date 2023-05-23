@@ -51,6 +51,11 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 	            case type.knight:
 	                //move 2.5 steps
 	                if ((cell_dist_abs(2, 1, w, h, _sel_x, _sel_y) || cell_dist_abs(1, 2, w, h, _sel_x, _sel_y)) && _team!=turn) _grid[# w, h] = true;
+	                if ((cell_dist_abs(2, 0, w, h, _sel_x, _sel_y) || cell_dist_abs(0, 2, w, h, _sel_x, _sel_y)) && _team!=turn) _grid[# w, h] = true;
+	                if ((cell_dist_abs(3, 0, w, h, _sel_x, _sel_y) || cell_dist_abs(0, 3, w, h, _sel_x, _sel_y)) && _team!=turn) _grid[# w, h] = true;
+	                if ((cell_dist_abs(1, 0, w, h, _sel_x, _sel_y) || cell_dist_abs(0, 1, w, h, _sel_x, _sel_y)) && _team!=turn) _grid[# w, h] = true;
+	                if ((cell_dist_abs(1, 1, w, h, _sel_x, _sel_y) || cell_dist_abs(1, 1, w, h, _sel_x, _sel_y)) && _team!=turn) _grid[# w, h] = true;
+	                if ((cell_dist_abs(0, 0, w, h, _sel_x, _sel_y) || cell_dist_abs(0, 0, w, h, _sel_x, _sel_y)) && _team!=turn) _grid[# w, h] = true;
 	            break;
             
 	            //bishop
