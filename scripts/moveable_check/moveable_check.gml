@@ -111,6 +111,13 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 						global.archer_capt = true;
 					}
 	            break;
+
+				//lance
+				case type.lance:
+					if (_sel_x==w && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team!=turn) {
+						if (turn==0 && h>_sel_y) _grid[# w, h] = true;
+						if (turn==1 && h<_sel_y) _grid[# w, h] = true;
+					}
 	        }
 	        //if king piece is there, don't move
 	        if (_grid[# w, h] && _type==type.king && _team==!turn){

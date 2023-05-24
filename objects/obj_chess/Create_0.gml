@@ -84,6 +84,7 @@ sprites[type.queen] = spr_queen_white;
 sprites[type.blocker] = spr_blocker_white;
 sprites[type.archer] = spr_archer_white;
 sprites[type.squire] = spr_squire_white;
+sprites[type.lance] = spr_lance_white;
 
 //color of the teams' pieces
 colors[0] = c_white;
@@ -190,6 +191,14 @@ _array[info.team] = 1;
 ds_grid_set(board, 3, board_h - 1, array_new(_array));
 ds_grid_set(board, 12, board_h - 1, array_new(_array));
 
+//place lances
+_array[info.type] = type.lance;
+_array[info.team] = 0;
+ds_grid_set(board, 4, 1, array_new(_array));
+ds_grid_set(board, 11, 1, array_new(_array));
+_array[info.team] = 1;
+ds_grid_set(board, 4, board_h - 2, array_new(_array));
+ds_grid_set(board, 11, board_h - 2, array_new(_array));
 
 
 /* */
