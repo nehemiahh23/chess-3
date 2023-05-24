@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Chess3",
-    "path": "Chess3.yyp",
+    "name": "Pieces",
+    "path": "folders/Sprites/Pieces.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
