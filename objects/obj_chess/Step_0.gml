@@ -24,8 +24,13 @@ if (mode==2 && animated){
     if (_move_team==!turn) defeat_piece(move_x, move_y);
     
     //move piece
-    board_set_cell(board, move_x, move_y, turn, sel_type);
-    board_set_cell(board, sel_x, sel_y, -1, type.empty);
+    if (!global.archer_capt) {
+        board_set_cell(board, move_x, move_y, turn, sel_type);
+        board_set_cell(board, sel_x, sel_y, -1, type.empty);
+    }
+    else {
+        global.archer_capt = false
+    }
     
     //clear moveable grid after checking
     check[!turn] = false;

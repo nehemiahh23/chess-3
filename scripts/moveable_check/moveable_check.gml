@@ -87,6 +87,30 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 	                //move anywhere vertically
 	                if ((_sel_x==w || _sel_y==h) && abs(_sel_x-w)<=2 && abs(_sel_y-h)<=2 && _team!=turn) _grid[# w, h] = true;
 	            break;
+
+				//archer
+	            case type.archer:
+	                //diagonal movement
+	                if (abs(_sel_x-w)==abs(_sel_y-h) && abs(_sel_x-w)<=4 && abs(_sel_y-h)<=4 && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team==-1) _grid[# w, h] = true;
+	                //move anywhere vertically
+	                if ((_sel_x==w || _sel_y==h) && abs(_sel_x-w)<=4 && abs(_sel_y-h)<=4 && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team==-1) _grid[# w, h] = true;
+					if (cell_dist(0, ver_dir, w, h, _sel_x, _sel_y) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team==!turn && team!=-1){
+						_grid[# w, h] = true;
+						global.archer_capt = true;
+					}
+					if (cell_dist(0, ver_dir*2, w, h, _sel_x, _sel_y) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team==!turn && _team!=-1){
+						_grid[# w, h] = true;
+						global.archer_capt = true;
+					}
+					if (cell_dist(0, ver_dir*3, w, h, _sel_x, _sel_y) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team==!turn && _team!=-1){
+						_grid[# w, h] = true;
+						global.archer_capt = true;
+					}
+					if (cell_dist(0, ver_dir*4, w, h, _sel_x, _sel_y) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team==!turn && _team!=-1){
+						_grid[# w, h] = true;
+						global.archer_capt = true;
+					}
+	            break;
 	        }
 	        //if king piece is there, don't move
 	        if (_grid[# w, h] && _type==type.king && _team==!turn){
@@ -106,7 +130,7 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 			}
 	    }
 	}
-
+	
 
 
 }

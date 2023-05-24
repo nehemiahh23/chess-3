@@ -89,6 +89,9 @@ sprites[type.squire] = spr_squire_white;
 colors[0] = c_white;
 colors[1] = c_black;
 
+// is archer capturing
+var global.archer_capt = false
+
 //fill empty
 //create an array with properties of an empty cell
 //fill grid with that array
