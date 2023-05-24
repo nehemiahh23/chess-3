@@ -61,7 +61,7 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 	            //bishop
 	            case type.bishop:
 	                //diagonal movement
-	                if (abs(_sel_x-w)==abs(_sel_y-h) && check_path_empty(w, h, _sel_x, _sel_y, _board)) _grid[# w, h] = true;
+	                if (abs(_sel_x-w)==abs(_sel_y-h) && check_path_empty(w, h, _sel_x, _sel_y, _board) && (_type=type.pawn || _type=type.empty)) _grid[# w, h] = true;
 	            break;
             
 	            //king
