@@ -79,6 +79,7 @@
     {"id":{"name":"draw_text_center","path":"scripts/draw_text_center/draw_text_center.yy",},},
     {"id":{"name":"draw_highlight","path":"scripts/draw_highlight/draw_highlight.yy",},},
     {"id":{"name":"moveable_check","path":"scripts/moveable_check/moveable_check.yy",},},
+    {"id":{"name":"spr_archer_white","path":"sprites/spr_archer_white/spr_archer_white.yy",},},
     {"id":{"name":"moveable_clear","path":"scripts/moveable_clear/moveable_clear.yy",},},
     {"id":{"name":"spr_squire_white","path":"sprites/spr_squire_white/spr_squire_white.yy",},},
     {"id":{"name":"button_start","path":"scripts/button_start/button_start.yy",},},

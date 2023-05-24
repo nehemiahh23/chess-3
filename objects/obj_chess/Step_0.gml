@@ -20,12 +20,25 @@ if (mode==2 && animated){
     var _move_ar = board[# move_x, move_y];
     var _move_team = _move_ar[info.team];
     
-    //defeat if enemy present
-    if (_move_team==!turn) defeat_piece(move_x, move_y);
+
+    if (sel_type==type.archer) {
+        if (_move_team==!turn && global.archer_capt) {
+            defeat_piece(move_x, move_y)
+            board_set_cell(board, move_x, move_y, -1, type.empty);
+            global.archer_capt = false
+        }
+        else {
+            board_set_cell(board, move_x, move_y, turn, sel_type);
+            board_set_cell(board, sel_x, sel_y, -1, type.empty);
+            global.archer_capt = false
+        }
+    }
+    else {
+        if (_move_team==!turn) defeat_piece(move_x, move_y);
+        board_set_cell(board, move_x, move_y, turn, sel_type);
+        board_set_cell(board, sel_x, sel_y, -1, type.empty);
+    }
     
-    //move piece
-    board_set_cell(board, move_x, move_y, turn, sel_type);
-    board_set_cell(board, sel_x, sel_y, -1, type.empty);
     
     //clear moveable grid after checking
     check[!turn] = false;
