@@ -81,6 +81,12 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 	            case type.blocker:
 	                if (abs(_sel_x-w)<2 && abs(_sel_y-h)<2 && _team==-1) _grid[# w, h] = true;
 	            break;
+
+				//squire
+	            case type.squire:
+	                //move anywhere vertically
+	                if ((_sel_x==w || _sel_y==h) && abs(_sel_x-w)<=2 && abs(_sel_y-h)<=2 && _team!=turn) _grid[# w, h] = true;
+	            break;
 	        }
 	        //if king piece is there, don't move
 	        if (_grid[# w, h] && _type==type.king && _team==!turn){
