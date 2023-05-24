@@ -35,14 +35,14 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 	                }
                 
 	                //diagonal attack
-	                if ((cell_dist(1, ver_dir, w, h, _sel_x, _sel_y) || cell_dist(-1, ver_dir, w, h, _sel_x, _sel_y)) && _type!=type.blocker && _team==!turn) _grid[# w, h] = true;
+	                if ((cell_dist(1, ver_dir, w, h, _sel_x, _sel_y) || cell_dist(-1, ver_dir, w, h, _sel_x, _sel_y)) && _team==!turn) _grid[# w, h] = true;
 	            break;
             
 	            //rook
 	            case type.rook:
 	                //move anywhere vertically
-					if (abs(_sel_x-w)<2 && abs(_sel_y-h)<2 && _type!=type.blocker && _team!=turn) _grid[# w, h] = true;
-	                if ((_sel_x==w || _sel_y==h) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _type!=type.blocker && _team!=turn) {
+					if (abs(_sel_x-w)<2 && abs(_sel_y-h)<2 && _team!=turn) _grid[# w, h] = true;
+	                if ((_sel_x==w || _sel_y==h) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team!=turn) {
 						if ((h==0 || w==0) || (h==board_h-1 || w==board_w-1)) _grid[# w, h] = true
 					}
 	            break;
@@ -50,31 +50,31 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 	            //knight
 	            case type.knight:
 	                //move 2.5 steps
-	                if ((cell_dist_abs(2, 1, w, h, _sel_x, _sel_y) || cell_dist_abs(1, 2, w, h, _sel_x, _sel_y)) && _type!=type.blocker && _team!=turn) _grid[# w, h] = true;
-	                if ((cell_dist_abs(2, 0, w, h, _sel_x, _sel_y) || cell_dist_abs(0, 2, w, h, _sel_x, _sel_y)) && _type!=type.blocker && _team!=turn) _grid[# w, h] = true;
-	                if ((cell_dist_abs(3, 0, w, h, _sel_x, _sel_y) || cell_dist_abs(0, 3, w, h, _sel_x, _sel_y)) && _type!=type.blocker && _team!=turn) _grid[# w, h] = true;
-	                if ((cell_dist_abs(1, 0, w, h, _sel_x, _sel_y) || cell_dist_abs(0, 1, w, h, _sel_x, _sel_y)) && _type!=type.blocker && _team!=turn) _grid[# w, h] = true;
-	                if ((cell_dist_abs(1, 1, w, h, _sel_x, _sel_y) || cell_dist_abs(1, 1, w, h, _sel_x, _sel_y)) && _type!=type.blocker && _team!=turn) _grid[# w, h] = true;
-	                if ((cell_dist_abs(0, 0, w, h, _sel_x, _sel_y) || cell_dist_abs(0, 0, w, h, _sel_x, _sel_y)) && _type!=type.blocker && _team!=turn) _grid[# w, h] = true;
+	                if ((cell_dist_abs(2, 1, w, h, _sel_x, _sel_y) || cell_dist_abs(1, 2, w, h, _sel_x, _sel_y)) && _team!=turn) _grid[# w, h] = true;
+	                if ((cell_dist_abs(2, 0, w, h, _sel_x, _sel_y) || cell_dist_abs(0, 2, w, h, _sel_x, _sel_y)) && _team!=turn) _grid[# w, h] = true;
+	                if ((cell_dist_abs(3, 0, w, h, _sel_x, _sel_y) || cell_dist_abs(0, 3, w, h, _sel_x, _sel_y)) && _team!=turn) _grid[# w, h] = true;
+	                if ((cell_dist_abs(1, 0, w, h, _sel_x, _sel_y) || cell_dist_abs(0, 1, w, h, _sel_x, _sel_y)) && _team!=turn) _grid[# w, h] = true;
+	                if ((cell_dist_abs(1, 1, w, h, _sel_x, _sel_y) || cell_dist_abs(1, 1, w, h, _sel_x, _sel_y)) && _team!=turn) _grid[# w, h] = true;
+	                if ((cell_dist_abs(0, 0, w, h, _sel_x, _sel_y) || cell_dist_abs(0, 0, w, h, _sel_x, _sel_y)) && _team!=turn) _grid[# w, h] = true;
 	            break;
             
 	            //bishop
 	            case type.bishop:
 	                //diagonal movement
-	                if (abs(_sel_x-w)==abs(_sel_y-h) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _type!=type.blocker) _grid[# w, h] = true;
+	                if (abs(_sel_x-w)==abs(_sel_y-h) && check_path_empty(w, h, _sel_x, _sel_y, _board)) _grid[# w, h] = true;
 	            break;
             
 	            //king
 	            case type.king:
-	                if (abs(_sel_x-w)<2 && abs(_sel_y-h)<2 && _type!=type.blocker && _team!=turn) _grid[# w, h] = true;
+	                if (abs(_sel_x-w)<2 && abs(_sel_y-h)<2 && _team!=turn) _grid[# w, h] = true;
 	            break;
             
 	            //queen
 	            case type.queen:
 	                //diagonal movement
-	                if (abs(_sel_x-w)==abs(_sel_y-h) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _type!=type.blocker) _grid[# w, h] = true;
+	                if (abs(_sel_x-w)==abs(_sel_y-h) && check_path_empty(w, h, _sel_x, _sel_y, _board)) _grid[# w, h] = true;
 	                //move anywhere vertically
-	                if ((_sel_x==w || _sel_y==h) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _type!=type.blocker && _team!=turn) _grid[# w, h] = true;
+	                if ((_sel_x==w || _sel_y==h) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team!=turn) _grid[# w, h] = true;
 	            break;
 
 				//blocker
@@ -94,6 +94,10 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 	            checked_x = draw_x + w*cell_size;
 	            checked_y = draw_y + h*cell_size;
 	        }
+			//cant capture blockers
+			if (_grid[# w, h] && _team==!turn && _type==type.blocker){
+				_grid[# w, h] = false
+			}
 	    }
 	}
 
