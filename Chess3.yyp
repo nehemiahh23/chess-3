@@ -52,6 +52,7 @@
     {"id":{"name":"spr_board2","path":"sprites/spr_board2/spr_board2.yy",},},
     {"id":{"name":"spr_board3","path":"sprites/spr_board3/spr_board3.yy",},},
     {"id":{"name":"spr_board4","path":"sprites/spr_board4/spr_board4.yy",},},
+    {"id":{"name":"spr_lance_white","path":"sprites/spr_lance_white/spr_lance_white.yy",},},
     {"id":{"name":"spr_board5","path":"sprites/spr_board5/spr_board5.yy",},},
     {"id":{"name":"spr_rook_white","path":"sprites/spr_rook_white/spr_rook_white.yy",},},
     {"id":{"name":"spr_queen_white","path":"sprites/spr_queen_white/spr_queen_white.yy",},},

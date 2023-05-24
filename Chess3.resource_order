@@ -1,6 +1,7 @@
 {
   "FolderOrderSettings": [],
   "ResourceOrderSettings": [
+    {"name":"spr_lance_white","order":8,"path":"sprites/spr_lance_white/spr_lance_white.yy",},
     {"name":"spr_rook_white","order":5,"path":"sprites/spr_rook_white/spr_rook_white.yy",},
     {"name":"spr_queen_white","order":4,"path":"sprites/spr_queen_white/spr_queen_white.yy",},
     {"name":"spr_pawn_white","order":3,"path":"sprites/spr_pawn_white/spr_pawn_white.yy",},
