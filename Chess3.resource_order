@@ -1,4 +1,11 @@
 {
   "FolderOrderSettings": [],
-  "ResourceOrderSettings": [],
+  "ResourceOrderSettings": [
+    {"name":"spr_rook_white","order":5,"path":"sprites/spr_rook_white/spr_rook_white.yy",},
+    {"name":"spr_queen_white","order":4,"path":"sprites/spr_queen_white/spr_queen_white.yy",},
+    {"name":"spr_pawn_white","order":3,"path":"sprites/spr_pawn_white/spr_pawn_white.yy",},
+    {"name":"spr_king_white","order":2,"path":"sprites/spr_king_white/spr_king_white.yy",},
+    {"name":"spr_blocker_white","order":6,"path":"sprites/spr_blocker_white/spr_blocker_white.yy",},
+    {"name":"spr_bishop_white","order":1,"path":"sprites/spr_bishop_white/spr_bishop_white.yy",},
+  ],
 }

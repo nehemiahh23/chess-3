@@ -76,6 +76,11 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 	                //move anywhere vertically
 	                if ((_sel_x==w || _sel_y==h) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team!=turn) _grid[# w, h] = true;
 	            break;
+
+				//blocker
+	            case type.blocker:
+	                if (abs(_sel_x-w)<2 && abs(_sel_y-h)<2 && _team==-1) _grid[# w, h] = true;
+	            break;
 	        }
 	        //if king piece is there, don't move
 	        if (_grid[# w, h] && _type==type.king && _team==!turn){
@@ -89,6 +94,10 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 	            checked_x = draw_x + w*cell_size;
 	            checked_y = draw_y + h*cell_size;
 	        }
+			//cant capture blockers
+			if (_grid[# w, h] && _team==!turn && _type==type.blocker){
+				_grid[# w, h] = false
+			}
 	    }
 	}
 

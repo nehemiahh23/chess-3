@@ -81,6 +81,7 @@ sprites[type.knight] = spr_knight_white;
 sprites[type.bishop] = spr_bishop_white;
 sprites[type.king] = spr_king_white;
 sprites[type.queen] = spr_queen_white;
+sprites[type.blocker] = spr_blocker_white;
 
 //color of the teams' pieces
 colors[0] = c_white;
@@ -157,6 +158,14 @@ ds_grid_set(board, 8, 0, array_new(_array));
 _array[info.team] = 1;
 ds_grid_set(board, 8, board_h - 1, array_new(_array));
 
+//place blockers
+_array[info.type] = type.blocker;
+_array[info.team] = 0;
+ds_grid_set(board, 6, 0, array_new(_array));
+ds_grid_set(board, 9, 0, array_new(_array));
+_array[info.team] = 1;
+ds_grid_set(board, 6, board_h - 1, array_new(_array));
+ds_grid_set(board, 9, board_h - 1, array_new(_array));
 
 
 
