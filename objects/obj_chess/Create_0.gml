@@ -39,7 +39,7 @@ draw_y = 64;
 //properties of each cell
 enum info{
     team,   //team it belongs to
-    type  //type of piece, constants below
+    type,  //type of piece, constants below
     p_l //is it pawn-like
 }
 
@@ -86,6 +86,7 @@ sprites[type.blocker] = spr_blocker_white;
 sprites[type.archer] = spr_archer_white;
 sprites[type.squire] = spr_squire_white;
 sprites[type.lance] = spr_lance_white;
+sprites[type.warlock] = spr_warlock_white;
 
 //color of the teams' pieces
 colors[0] = c_white;
@@ -215,6 +216,15 @@ _array[info.team] = 1;
 ds_grid_set(board, 4, board_h - 2, array_new(_array));
 ds_grid_set(board, 11, board_h - 2, array_new(_array));
 
+//place warlocks
+_array[info.type] = type.warlock;
+_array[info.p_l] = true
+_array[info.team] = 0;
+ds_grid_set(board, 3, 1, array_new(_array));
+ds_grid_set(board, 12, 1, array_new(_array));
+_array[info.team] = 1;
+ds_grid_set(board, 3, board_h - 2, array_new(_array));
+ds_grid_set(board, 12, board_h - 2, array_new(_array));
 
 /* */
 ///game

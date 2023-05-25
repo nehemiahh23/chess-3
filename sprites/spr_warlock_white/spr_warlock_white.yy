@@ -1,11 +1,11 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_squire_white",
-  "bbox_bottom": 12,
-  "bbox_left": 5,
-  "bbox_right": 10,
-  "bbox_top": 4,
+  "name": "spr_warlock_white",
+  "bbox_bottom": 14,
+  "bbox_left": 3,
+  "bbox_right": 12,
+  "bbox_top": 2,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"31ec3666-86a2-4a7f-a511-c540cb548596",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ce9f0fc2-a20f-4af2-9ac3-d58a2db2415a",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 16,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"c8c797ac-2e62-47a8-a47f-fad576f04bee","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"c6560961-fc71-4ae0-8c45-fbef0adb5606","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -32,7 +32,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_squire_white",
+    "name": "spr_warlock_white",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"31ec3666-86a2-4a7f-a511-c540cb548596","path":"sprites/spr_squire_white/spr_squire_white.yy",},},},"Disabled":false,"id":"9d4564dd-3ca9-439e-b8b1-9bdc966052fb","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ce9f0fc2-a20f-4af2-9ac3-d58a2db2415a","path":"sprites/spr_warlock_white/spr_warlock_white.yy",},},},"Disabled":false,"id":"3b92c6bf-875b-43b0-b424-39b7fc05ea2a","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
