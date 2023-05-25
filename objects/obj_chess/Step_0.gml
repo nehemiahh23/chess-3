@@ -34,7 +34,15 @@ if (mode==2 && animated){
         }
     }
     else {
-        if (_move_team==!turn) defeat_piece(move_x, move_y);
+        if (_move_team==!turn) {
+            if (sel_type==type.warlock) {
+                global.soul_turn = true
+                defeat_piece(move_x, move_y);
+            }
+            else {
+                defeat_piece(move_x, move_y);
+            }
+        }
         board_set_cell(board, move_x, move_y, turn, sel_type);
         board_set_cell(board, sel_x, sel_y, -1, type.empty);
     }
