@@ -34,7 +34,15 @@ if (mode==2 && animated){
         }
     }
     else {
-        if (_move_team==!turn) defeat_piece(move_x, move_y);
+        if (_move_team==!turn) {
+            if (sel_type==type.warlock) {
+                global.soul_turn = true
+                defeat_piece(move_x, move_y);
+            }
+            else {
+                defeat_piece(move_x, move_y);
+            }
+        }
         board_set_cell(board, move_x, move_y, turn, sel_type);
         board_set_cell(board, sel_x, sel_y, -1, type.empty);
     }
@@ -46,7 +54,10 @@ if (mode==2 && animated){
     moveable_clear();
     
     //change turn
-    turn = !turn;
+    if (global.soul_turn) {
+        turn = turn;
+    }
+    else turn = !turn;
     mode = 0;
     //if check, check if the other side is lost
     if (check[turn]){
@@ -160,16 +171,28 @@ var _array, _type, _team;
 _array = board[# cell_x, cell_y];
 _team = _array[info.team];
 _type = _array[info.type];
+// _p_l = _array[info.p_l];
 
 //if clicked
 if (mouse_check_button_pressed(mb_left)){
     //select mode (0)
     if (mode==0 && _team==turn){
-        //select piece
-        sel_type = _type;
-        sel_x = cell_x;
-        sel_y = cell_y;
-        mode = 1;
+        if (global.soul_turn) {
+            if (_array[info.type] == type.warlock || _array[info.p_l]) {
+                //select piece
+                sel_type = _type;
+                sel_x = cell_x;
+                sel_y = cell_y;
+                mode = 1;
+            }
+        }
+        else {
+            //select piece
+            sel_type = _type;
+            sel_x = cell_x;
+            sel_y = cell_y;
+            mode = 1;
+        }
         
         //check moveables
         moveable_clear();
@@ -232,6 +255,8 @@ if (mouse_check_button_pressed(mb_left)){
         }
         //register move
         else if (moveable[# cell_x, cell_y]){
+            if (global.soul_turn) global.soul_turn = false
+
             //set moving position
             move_x = cell_x;
             move_y = cell_y;

@@ -78,6 +78,7 @@
     {"id":{"name":"board_set_cell","path":"scripts/board_set_cell/board_set_cell.yy",},},
     {"id":{"name":"defeat_piece","path":"scripts/defeat_piece/defeat_piece.yy",},},
     {"id":{"name":"draw_text_center","path":"scripts/draw_text_center/draw_text_center.yy",},},
+    {"id":{"name":"spr_warlock_white","path":"sprites/spr_warlock_white/spr_warlock_white.yy",},},
     {"id":{"name":"draw_highlight","path":"scripts/draw_highlight/draw_highlight.yy",},},
     {"id":{"name":"moveable_check","path":"scripts/moveable_check/moveable_check.yy",},},
     {"id":{"name":"spr_archer_white","path":"sprites/spr_archer_white/spr_archer_white.yy",},},
