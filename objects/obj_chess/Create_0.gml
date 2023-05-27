@@ -104,7 +104,7 @@ global.soul_turn = false
 var _empty;
 _empty[info.team] = -1;
 _empty[info.type] = type.empty;
-_empty[info.p_l] = undefined
+_empty[info.p_l] = false
 
 ds_grid_set_region(board, 0, 0, board_w-1, board_h-1, array_new(_empty));
 
@@ -244,6 +244,7 @@ mode = 0; //mode/state:
 win = -1; //Who won? 0 if player one, 1 if player two. -1 if game not over yet
 
 //selected
+sel_p_l = info.p_l
 sel_type = type.empty; //which type of piece is selected?
 sel_x = 0; //what is the position of the selected cell?
 sel_y = 0;
