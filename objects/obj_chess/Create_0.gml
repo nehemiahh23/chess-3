@@ -87,6 +87,8 @@ sprites[type.archer] = spr_archer_white;
 sprites[type.squire] = spr_squire_white;
 sprites[type.lance] = spr_lance_white;
 sprites[type.warlock] = spr_warlock_white;
+sprites[type.spy] = spr_spy_white;
+sprites[type.s_pawn] = spr_s_pawn_white;
 
 //color of the teams' pieces
 colors[0] = c_white;
@@ -215,6 +217,26 @@ ds_grid_set(board, 11, 1, array_new(_array));
 _array[info.team] = 1;
 ds_grid_set(board, 4, board_h - 2, array_new(_array));
 ds_grid_set(board, 11, board_h - 2, array_new(_array));
+
+//place spies
+_array[info.type] = type.spy;
+_array[info.p_l] = true
+_array[info.team] = 0;
+ds_grid_set(board, 2, 1, array_new(_array));
+ds_grid_set(board, 13, 1, array_new(_array));
+_array[info.team] = 1;
+ds_grid_set(board, 2, board_h - 2, array_new(_array));
+ds_grid_set(board, 13, board_h - 2, array_new(_array));
+
+//place super pawns
+_array[info.type] = type.s_pawn;
+_array[info.p_l] = true
+_array[info.team] = 0;
+ds_grid_set(board, 7, 1, array_new(_array));
+ds_grid_set(board, 8, 1, array_new(_array));
+_array[info.team] = 1;
+ds_grid_set(board, 7, board_h - 2, array_new(_array));
+ds_grid_set(board, 8, board_h - 2, array_new(_array));
 
 //place warlocks
 _array[info.type] = type.warlock;
