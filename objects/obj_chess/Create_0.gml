@@ -103,6 +103,17 @@ global.archer_capt = false
 // is it a soul turn
 global.soul_turn = false
 
+// jumper vars
+global.jump = false
+global.cpt_x1 = 0
+global.cpt_y1 = 0
+global.cpt_x2 = 0
+global.cpt_y2 = 0
+global.pos_x1 = 0
+global.pos_y1 = 0
+global.pos_x2 = 0
+global.pos_y2 = 0
+
 //fill empty
 //create an array with properties of an empty cell
 //fill grid with that array

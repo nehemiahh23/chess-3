@@ -33,6 +33,24 @@ if (mode==2 && animated){
             global.archer_capt = false
         }
     }
+    else if (sel_type==type.jumper) {
+        if (move_x==global.pos_x1 && move_y==global.pos_y1) {
+            defeat_piece(global.cpt_x1, global.cpt_y1)
+            board_set_cell(board, move_x, move_y, turn, sel_type);
+            board_set_cell(board, sel_x, sel_y, -1, type.empty);
+            board_set_cell(board, global.cpt_x1, global.cpt_y1, -1, type.empty)
+        }
+        else if (move_x==global.pos_x2 && move_y==global.pos_y2) {
+            defeat_piece(global.cpt_x2, global.cpt_y2)
+            board_set_cell(board, move_x, move_y, turn, sel_type);
+            board_set_cell(board, sel_x, sel_y, -1, type.empty);
+            board_set_cell(board, global.cpt_x2, global.cpt_y2, -1, type.empty)
+        }
+        else {
+            board_set_cell(board, move_x, move_y, turn, sel_type);
+            board_set_cell(board, sel_x, sel_y, -1, type.empty);
+        }
+    }
     else {
         if (_move_team==!turn) {
             if (sel_type==type.warlock) {
