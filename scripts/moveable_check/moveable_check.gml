@@ -162,6 +162,42 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 	                //diagonal attack
 	                if ((cell_dist(1, ver_dir, w, h, _sel_x, _sel_y) || cell_dist(-1, ver_dir, w, h, _sel_x, _sel_y)) && _team==!turn) _grid[# w, h] = true;
 	            break;
+
+				//jumper
+	            case type.jumper:
+	                //diagonal move
+	                if (!global.jump) {
+						if ((cell_dist(1, ver_dir, w, h, _sel_x, _sel_y) || cell_dist(-1, ver_dir, w, h, _sel_x, _sel_y)) && _team==-1) _grid[# w, h] = true;
+					}
+	                
+					//capture
+					if (cell_dist(1, ver_dir, w, h, _sel_x, _sel_y) && _team==!turn) {
+						_grid[# w+1, h+ver_dir] = true;
+						global.cpt_x1 = w
+						global.cpt_y1 = h
+						global.pos_x1 = w+1
+						global.pos_y1 = h+ver_dir
+					}
+	                if (cell_dist(-1, ver_dir, w, h, _sel_x, _sel_y) && _team==!turn) {
+						_grid[# w-1, h+ver_dir] = true;
+						global.cpt_x2 = w
+						global.cpt_y2 = h
+						global.pos_x2 = w-1
+						global.pos_y2 = h+ver_dir
+					}
+	            break;
+
+				//leaper
+	            case type.leaper:
+	                //diagonal move
+	                if (abs(_sel_x-w)==abs(_sel_y-h) && abs(_sel_x-w)==1 && abs(_sel_y-h)==1 && _team==-1) _grid[# w, h] = true;
+	                
+					//capture
+					if (cell_dist(1, ver_dir, w, h, _sel_x, _sel_y) && _team==!turn) _grid[# w+1, h+ver_dir] = true;
+	                if (cell_dist(-1, ver_dir, w, h, _sel_x, _sel_y) && _team==!turn) _grid[# w-1, h+ver_dir] = true;
+	                if (cell_dist(1, -ver_dir, w, h, _sel_x, _sel_y) && _team==!turn) _grid[# w-1, h+ver_dir] = true;
+	                if (cell_dist(-1, -ver_dir, w, h, _sel_x, _sel_y) && _team==!turn) _grid[# w-1, h+ver_dir] = true;
+	            break;
 	        }
 	        //if king piece is there, don't move
 	        if (_grid[# w, h] && _type==type.king && _team==!turn){

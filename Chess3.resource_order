@@ -9,9 +9,11 @@
     {"name":"spr_blocker_white","order":6,"path":"sprites/spr_blocker_white/spr_blocker_white.yy",},
     {"name":"spr_bishop_white","order":1,"path":"sprites/spr_bishop_white/spr_bishop_white.yy",},
     {"name":"spr_spy_white","order":11,"path":"sprites/spr_spy_white/spr_spy_white.yy",},
+    {"name":"spr_leaper_white","order":12,"path":"sprites/spr_leaper_white/spr_leaper_white.yy",},
     {"name":"spr_warlock_white","order":10,"path":"sprites/spr_warlock_white/spr_warlock_white.yy",},
     {"name":"spr_archer_white","order":7,"path":"sprites/spr_archer_white/spr_archer_white.yy",},
     {"name":"spr_s_pawn_white","order":12,"path":"sprites/spr_s_pawn_white/spr_s_pawn_white.yy",},
     {"name":"spr_squire_white","order":9,"path":"sprites/spr_squire_white/spr_squire_white.yy",},
+    {"name":"spr_jumper_white","order":11,"path":"sprites/spr_jumper_white/spr_jumper_white.yy",},
   ],
 }
