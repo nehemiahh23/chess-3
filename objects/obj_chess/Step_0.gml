@@ -39,12 +39,36 @@ if (mode==2 && animated){
             board_set_cell(board, move_x, move_y, turn, sel_type);
             board_set_cell(board, sel_x, sel_y, -1, type.empty);
             board_set_cell(board, global.cpt_x1, global.cpt_y1, -1, type.empty)
+            global.cpt_x1 = 0
+            global.cpt_y1 = 0
+            global.pos_x1 = 0
+            global.pos_y1 = 0
+            if (turn==0) {
+                if ((board[# move_x+1, move_y+1][info.team]==1 && board[# move_x+2, move_y+2][info.team]==-1) || (board[# move_x-1, move_y+1][info.team]==1 && board[# move_x-2, move_y+2][info.team]==-1)) {
+                    global.jump = true
+                }
+            }
+            else if (turn==1) {
+                if ((board[# move_x+1, move_y-1][info.team]==0 && board[# move_x+2, move_y-2][info.team]==-1) || (board[# move_x-1, move_y-1][info.team]==0 && board[# move_x-2, move_y-2][info.team]==-1)) {
+                    global.jump = true
+                }
+            }
         }
         else if (move_x==global.pos_x2 && move_y==global.pos_y2) {
             defeat_piece(global.cpt_x2, global.cpt_y2)
             board_set_cell(board, move_x, move_y, turn, sel_type);
             board_set_cell(board, sel_x, sel_y, -1, type.empty);
             board_set_cell(board, global.cpt_x2, global.cpt_y2, -1, type.empty)
+            global.cpt_x2 = 0
+            global.cpt_y2 = 0
+            global.pos_x2 = 0
+            global.pos_y2 = 0
+            if (turn==0) {
+                if ((board[# move_x+1, move_y+1][info.team]==1 && board[# move_x+2, move_y+2][info.team]==-1) || (board[# move_x-1, move_y+1][info.team]==1 && board[# move_x-2, move_y+2][info.team]==-1)) global.jump = true
+            }
+            else if (turn==1) {
+                if ((board[# move_x+1, move_y-1][info.team]==0 && board[# move_x+2, move_y-2][info.team]==-1) || (board[# move_x-1, move_y-1][info.team]==0 && board[# move_x-2, move_y-2][info.team]==-1)) global.jump = true
+            }
         }
         else {
             board_set_cell(board, move_x, move_y, turn, sel_type);
@@ -72,10 +96,20 @@ if (mode==2 && animated){
     moveable_clear();
     
     //change turn
-    if (global.soul_turn) {
+    if (global.soul_turn || global.jump) {
+        board[# move_x, move_y][info.current] = true
         turn = turn;
     }
-    else turn = !turn;
+    else {
+        for(var _h=0; _h<board_h; _h++){
+            for(var _w=0; _w<board_w; _w++){
+                //get array
+                var _ar = board[# _w, _h];
+                if (_ar[info.current]) _ar[info.current] = false
+            }
+        }
+        turn = !turn;
+    }
     mode = 0;
     //if check, check if the other side is lost
     if (check[turn]){
@@ -185,11 +219,11 @@ if (mode==2 && animated){
 if (mouse_out) exit;
 
 //get board cell
-var _array, _type, _team;
+var _array, _type, _team, _current;
 _array = board[# cell_x, cell_y];
 _team = _array[info.team];
 _type = _array[info.type];
-// _p_l = _array[info.p_l];
+_current = _array[info.current]
 
 //if clicked
 if (mouse_check_button_pressed(mb_left)){
@@ -197,6 +231,15 @@ if (mouse_check_button_pressed(mb_left)){
     if (mode==0 && _team==turn){
         if (global.soul_turn) {
             if (_array[info.type] == type.warlock || _array[info.p_l]) {
+                //select piece
+                sel_type = _type;
+                sel_x = cell_x;
+                sel_y = cell_y;
+                mode = 1;
+            }
+        }
+        else if (global.jump) {
+            if (_current) {
                 //select piece
                 sel_type = _type;
                 sel_x = cell_x;
@@ -274,6 +317,9 @@ if (mouse_check_button_pressed(mb_left)){
         //register move
         else if (moveable[# cell_x, cell_y]){
             if (global.soul_turn) global.soul_turn = false
+            if (global.jump) {
+                global.jump = false
+            }
 
             //set moving position
             move_x = cell_x;

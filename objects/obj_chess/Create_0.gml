@@ -38,6 +38,7 @@ draw_y = 64;
 
 //properties of each cell
 enum info{
+    current, // is it the previously selected jumper
     team,   //team it belongs to
     type,  //type of piece, constants below
     p_l //is it pawn-like
@@ -121,6 +122,7 @@ var _empty;
 _empty[info.team] = -1;
 _empty[info.type] = type.empty;
 _empty[info.p_l] = false
+_empty[info.current] = false
 
 ds_grid_set_region(board, 0, 0, board_w-1, board_h-1, array_new(_empty));
 
@@ -129,6 +131,7 @@ ds_grid_set_region(board, 0, 0, board_w-1, board_h-1, array_new(_empty));
 var _pawn;
 _pawn[info.type] = type.pawn; //set type to type.pawn
 _pawn[info.p_l] = true
+_pawn[info.current] = false
 
 //place pawns for player 1
 _pawn[info.team] = 0;
@@ -149,6 +152,7 @@ var _array;
 //place rooks
 _array[info.type] = type.rook;
 _array[info.p_l] = false
+_array[info.current] = false
 _array[info.team] = 0;
 ds_grid_set(board, 0, 0, array_new(_array));
 ds_grid_set(board, board_w - 1, 0, array_new(_array));
@@ -159,6 +163,7 @@ ds_grid_set(board, board_w - 1, board_h - 1, array_new(_array));
 //place knights
 _array[info.type] = type.knight;
 _array[info.p_l] = false
+_array[info.current] = false
 _array[info.team] = 0;
 ds_grid_set(board, 1, 0, array_new(_array));
 ds_grid_set(board, board_w - 2, 0, array_new(_array));
@@ -169,6 +174,7 @@ ds_grid_set(board, board_w - 2, board_h - 1, array_new(_array));
 //place bishops
 _array[info.type] = type.bishop;
 _array[info.p_l] = false
+_array[info.current] = false
 _array[info.team] = 0;
 ds_grid_set(board, 4, 0, array_new(_array));
 ds_grid_set(board, board_w - 5, 0, array_new(_array));
@@ -179,6 +185,7 @@ ds_grid_set(board, board_w - 5, board_h - 1, array_new(_array));
 //place queen
 _array[info.type] = type.queen;
 _array[info.p_l] = false
+_array[info.current] = false
 _array[info.team] = 0;
 ds_grid_set(board, 7, 0, array_new(_array));
 _array[info.team] = 1;
@@ -187,6 +194,7 @@ ds_grid_set(board, 7, board_h - 1, array_new(_array));
 //place king
 _array[info.type] = type.king;
 _array[info.p_l] = false
+_array[info.current] = false
 _array[info.team] = 0;
 ds_grid_set(board, 8, 0, array_new(_array));
 _array[info.team] = 1;
@@ -195,6 +203,7 @@ ds_grid_set(board, 8, board_h - 1, array_new(_array));
 //place blockers
 _array[info.type] = type.blocker;
 _array[info.p_l] = false
+_array[info.current] = false
 _array[info.team] = 0;
 ds_grid_set(board, 6, 0, array_new(_array));
 ds_grid_set(board, 9, 0, array_new(_array));
@@ -205,6 +214,7 @@ ds_grid_set(board, 9, board_h - 1, array_new(_array));
 //place archers
 _array[info.type] = type.archer;
 _array[info.p_l] = false
+_array[info.current] = false
 _array[info.team] = 0;
 ds_grid_set(board, 2, 0, array_new(_array));
 ds_grid_set(board, 13, 0, array_new(_array));
@@ -215,6 +225,7 @@ ds_grid_set(board, 13, board_h - 1, array_new(_array));
 //place squires
 _array[info.type] = type.squire;
 _array[info.p_l] = false
+_array[info.current] = false
 _array[info.team] = 0;
 ds_grid_set(board, 3, 0, array_new(_array));
 ds_grid_set(board, 12, 0, array_new(_array));
@@ -225,6 +236,7 @@ ds_grid_set(board, 12, board_h - 1, array_new(_array));
 //place lances
 _array[info.type] = type.lance;
 _array[info.p_l] = true
+_array[info.current] = false
 _array[info.team] = 0;
 ds_grid_set(board, 4, 1, array_new(_array));
 ds_grid_set(board, 11, 1, array_new(_array));
@@ -235,6 +247,7 @@ ds_grid_set(board, 11, board_h - 2, array_new(_array));
 //place spies
 _array[info.type] = type.spy;
 _array[info.p_l] = true
+_array[info.current] = false
 _array[info.team] = 0;
 ds_grid_set(board, 2, 1, array_new(_array));
 ds_grid_set(board, 13, 1, array_new(_array));
@@ -245,6 +258,7 @@ ds_grid_set(board, 13, board_h - 2, array_new(_array));
 //place super pawns
 _array[info.type] = type.s_pawn;
 _array[info.p_l] = true
+_array[info.current] = false
 _array[info.team] = 0;
 ds_grid_set(board, 7, 1, array_new(_array));
 ds_grid_set(board, 8, 1, array_new(_array));
@@ -255,6 +269,7 @@ ds_grid_set(board, 8, board_h - 2, array_new(_array));
 //place warlocks
 _array[info.type] = type.warlock;
 _array[info.p_l] = true
+_array[info.current] = false
 _array[info.team] = 0;
 ds_grid_set(board, 3, 1, array_new(_array));
 ds_grid_set(board, 12, 1, array_new(_array));
@@ -265,6 +280,7 @@ ds_grid_set(board, 12, board_h - 2, array_new(_array));
 //place jumpers
 _array[info.type] = type.jumper;
 _array[info.p_l] = true
+_array[info.current] = false
 _array[info.team] = 0;
 ds_grid_set(board, 5, 1, array_new(_array));
 ds_grid_set(board, 10, 1, array_new(_array));
@@ -291,6 +307,7 @@ win = -1; //Who won? 0 if player one, 1 if player two. -1 if game not over yet
 
 //selected
 sel_p_l = info.p_l
+sel_current = info.current
 sel_type = type.empty; //which type of piece is selected?
 sel_x = 0; //what is the position of the selected cell?
 sel_y = 0;

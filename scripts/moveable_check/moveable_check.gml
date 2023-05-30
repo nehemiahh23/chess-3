@@ -166,7 +166,9 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 				//jumper
 	            case type.jumper:
 	                //diagonal move
-	                if ((cell_dist(1, ver_dir, w, h, _sel_x, _sel_y) || cell_dist(-1, ver_dir, w, h, _sel_x, _sel_y)) && _team==-1) _grid[# w, h] = true;
+	                if (!global.jump) {
+						if ((cell_dist(1, ver_dir, w, h, _sel_x, _sel_y) || cell_dist(-1, ver_dir, w, h, _sel_x, _sel_y)) && _team==-1) _grid[# w, h] = true;
+					}
 	                
 					//capture
 					if (cell_dist(1, ver_dir, w, h, _sel_x, _sel_y) && _team==!turn) {
