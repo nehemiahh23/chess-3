@@ -93,6 +93,7 @@ sprites[type.spy] = spr_spy_white;
 sprites[type.s_pawn] = spr_s_pawn_white;
 sprites[type.jumper] = spr_jumper_white;
 sprites[type.leaper] = spr_leaper_white;
+sprites[type.peasant] = spr_peasant_white;
 
 //color of the teams' pieces
 colors[0] = c_white;
@@ -287,6 +288,17 @@ ds_grid_set(board, 10, 1, array_new(_array));
 _array[info.team] = 1;
 ds_grid_set(board, 5, board_h - 2, array_new(_array));
 ds_grid_set(board, 10, board_h - 2, array_new(_array));
+
+//place peasants
+_array[info.type] = type.peasant;
+_array[info.p_l] = false
+_array[info.current] = false
+_array[info.team] = 0;
+ds_grid_set(board, 5, 0, array_new(_array));
+ds_grid_set(board, 10, 0, array_new(_array));
+_array[info.team] = 1;
+ds_grid_set(board, 5, board_h - 1, array_new(_array));
+ds_grid_set(board, 10, board_h - 1, array_new(_array));
 
 /* */
 ///game

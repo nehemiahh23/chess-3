@@ -50,6 +50,7 @@
     {"id":{"name":"spr_board0","path":"sprites/spr_board0/spr_board0.yy",},},
     {"id":{"name":"spr_board1","path":"sprites/spr_board1/spr_board1.yy",},},
     {"id":{"name":"spr_board2","path":"sprites/spr_board2/spr_board2.yy",},},
+    {"id":{"name":"spr_peasant_white","path":"sprites/spr_peasant_white/spr_peasant_white.yy",},},
     {"id":{"name":"spr_board3","path":"sprites/spr_board3/spr_board3.yy",},},
     {"id":{"name":"spr_board4","path":"sprites/spr_board4/spr_board4.yy",},},
     {"id":{"name":"spr_lance_white","path":"sprites/spr_lance_white/spr_lance_white.yy",},},
