@@ -85,6 +85,9 @@ if (mode==2 && animated){
                 defeat_piece(move_x, move_y);
             }
         }
+        else if (_move_team==turn) {
+            defeat_piece(move_x, move_y);
+        }
         board_set_cell(board, move_x, move_y, turn, sel_type);
         board_set_cell(board, sel_x, sel_y, -1, type.empty);
     }

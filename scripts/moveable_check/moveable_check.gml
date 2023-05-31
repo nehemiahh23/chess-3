@@ -205,7 +205,7 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 	                if (abs(_sel_x-w)==abs(_sel_y-h) && abs(_sel_x-w)==1 && abs(_sel_y-h)==1 && _team==-1) _grid[# w, h] = true;
 
 					//lateral move
-					if (_sel_y==h && abs(_sel_x-w)<2 && abs(_sel_y-h)<2 && _team==-1) _grid[# w, h] = true;
+					if (_sel_y==h && abs(_sel_x-w)<2 && abs(_sel_y-h)<2 && (_team==-1 || (_type==type.king && _team==turn))) _grid[# w, h] = true;
 	            break;
 	        }
 	        //if king piece is there, don't move
