@@ -85,6 +85,14 @@ if (mode==2 && animated){
                 defeat_piece(move_x, move_y);
             }
         }
+        else if (_move_team==turn && _move_team==0) {
+            defeat_piece(move_x, move_y);
+            global.c_g_0 = true
+        }
+        else if (_move_team==turn && _move_team==1) {
+            defeat_piece(move_x, move_y);
+            global.c_g_1 = true
+        }
         board_set_cell(board, move_x, move_y, turn, sel_type);
         board_set_cell(board, sel_x, sel_y, -1, type.empty);
     }
@@ -212,6 +220,43 @@ if (mode==2 && animated){
         
         //check
         check[turn] = true;
+    }
+
+    if (global.c_g_0) {
+        for(var _h=0; _h<board_h; _h++){
+            for(var _w=0; _w<board_w; _w++){
+                //get array
+                var _ar = board[# _w, _h];
+                var _team = _ar[info.team];
+                var _type = _ar[info.type];
+                
+                //check
+                if (_team==turn && _type!=type.blocker) {
+                    global.ally0_exists = true
+                    break;
+                }
+            }
+        }
+        if (!global.ally0_exists) win = !turn
+        global.ally0_exists = false
+    }
+    if (global.c_g_1) {
+        for(var _h=0; _h<board_h; _h++){
+            for(var _w=0; _w<board_w; _w++){
+                //get array
+                var _ar = board[# _w, _h];
+                var _team = _ar[info.team];
+                var _type = _ar[info.type];
+                
+                //check
+                if (_team==turn && _type!=type.blocker) {
+                    global.ally1_exists = true
+                    break;
+                }
+            }
+        }
+        if (!global.ally1_exists) win = !turn
+        global.ally1_exists = false
     }
 }
 

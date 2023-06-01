@@ -71,10 +71,18 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
             
 	            //queen
 	            case type.queen:
-	                //diagonal movement
-	                if (abs(_sel_x-w)==abs(_sel_y-h) && check_path_empty(w, h, _sel_x, _sel_y, _board)) _grid[# w, h] = true;
-	                //move anywhere vertically
-	                if ((_sel_x==w || _sel_y==h) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team!=turn) _grid[# w, h] = true;
+					if (global.c_g_0 && turn==0) {
+						if (abs(_sel_x-w)<2 && abs(_sel_y-h)<2 && _team!=turn) _grid[# w, h] = true;
+					}
+					else if (global.c_g_1 && turn==1) {
+						if (abs(_sel_x-w)<2 && abs(_sel_y-h)<2 && _team!=turn) _grid[# w, h] = true;
+					}
+					else {
+						//diagonal movement
+						if (abs(_sel_x-w)==abs(_sel_y-h) && check_path_empty(w, h, _sel_x, _sel_y, _board)) _grid[# w, h] = true;
+						//move anywhere vertically
+						if ((_sel_x==w || _sel_y==h) && check_path_empty(w, h, _sel_x, _sel_y, _board) && _team!=turn) _grid[# w, h] = true;
+					}
 	            break;
 
 				//blocker
@@ -197,6 +205,28 @@ function moveable_check(argument0, argument1, argument2, argument3, argument4) {
 	                if (cell_dist(-1, ver_dir, w, h, _sel_x, _sel_y) && _team==!turn) _grid[# w-1, h+ver_dir] = true;
 	                if (cell_dist(1, -ver_dir, w, h, _sel_x, _sel_y) && _team==!turn) _grid[# w-1, h+ver_dir] = true;
 	                if (cell_dist(-1, -ver_dir, w, h, _sel_x, _sel_y) && _team==!turn) _grid[# w-1, h+ver_dir] = true;
+	            break;
+
+				//peasant
+	            case type.peasant:
+					if (global.c_g_0 && turn==0) {
+						//diagonal move
+						if (abs(_sel_x-w)==abs(_sel_y-h) && abs(_sel_x-w)<=2 && abs(_sel_y-h)<=2 && check_path_empty(w, h, _sel_x, _sel_y, _board) && (_team==!turn || _team==-1 || (_type==type.king && _team==turn))) _grid[# w, h] = true;
+						//lateral move
+						if (_sel_y==h && abs(_sel_x-w)<=2 && abs(_sel_y-h)<=2 && check_path_empty(w, h, _sel_x, _sel_y, _board) && (_team==!turn || _team==-1 || (_type==type.king && _team==turn))) _grid[# w, h] = true;
+					}
+					else if (global.c_g_1 && turn==1) {
+						//diagonal move
+						if (abs(_sel_x-w)==abs(_sel_y-h) && abs(_sel_x-w)<=2 && check_path_empty(w, h, _sel_x, _sel_y, _board) && abs(_sel_y-h)<=2 && (_team==!turn || _team==-1 || (_type==type.king && _team==turn))) _grid[# w, h] = true;
+						//lateral move
+						if (_sel_y==h && abs(_sel_x-w)<=2 && abs(_sel_y-h)<=2 && check_path_empty(w, h, _sel_x, _sel_y, _board) && (_team==!turn || _team==-1 || (_type==type.king && _team==turn))) _grid[# w, h] = true;
+					}
+					else {
+						//diagonal move
+						if (abs(_sel_x-w)==abs(_sel_y-h) && abs(_sel_x-w)==1 && abs(_sel_y-h)==1 && (_team==-1 || (_type==type.king && _team==turn))) _grid[# w, h] = true;
+						//lateral move
+						if (_sel_y==h && abs(_sel_x-w)<2 && abs(_sel_y-h)<2 && (_team==-1 || (_type==type.king && _team==turn))) _grid[# w, h] = true;
+					}
 	            break;
 	        }
 	        //if king piece is there, don't move
