@@ -269,9 +269,13 @@ _array[info.current] = false
 _array[info.team] = 0;
 ds_grid_set(board, 7, 1, array_new(_array));
 ds_grid_set(board, 8, 1, array_new(_array));
+ds_grid_set(board, 6, 1, array_new(_array));
+ds_grid_set(board, 9, 1, array_new(_array));
 _array[info.team] = 1;
 ds_grid_set(board, 7, board_h - 2, array_new(_array));
 ds_grid_set(board, 8, board_h - 2, array_new(_array));
+ds_grid_set(board, 6, board_h - 2, array_new(_array));
+ds_grid_set(board, 9, board_h - 2, array_new(_array));
 
 //place warlocks
 _array[info.type] = type.warlock;
