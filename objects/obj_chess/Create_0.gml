@@ -99,6 +99,12 @@ sprites[type.peasant] = spr_peasant_white;
 colors[0] = c_white;
 colors[1] = c_black;
 
+// collectivist govt?
+global.c_g_0 = false
+global.c_g_1 = false
+global.ally0_exists = false
+global.ally1_exists = false
+
 // is archer capturing
 global.archer_capt = false
 
