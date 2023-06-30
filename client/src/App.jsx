@@ -1,5 +1,6 @@
 import './App.css'
 import Text from './components/Text'
+import Form from './components/Form'
 import { useState, useEffect } from 'react'
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
 
   return (
     <>
+      <Form />
+      <br></br>
       { mappedData }
     </>
   )
